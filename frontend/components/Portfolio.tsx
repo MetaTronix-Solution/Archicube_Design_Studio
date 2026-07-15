@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import ImagePlaceholder from "./ui/ImagePlaceholder";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 const PROJECTS = [
@@ -9,13 +9,25 @@ const PROJECTS = [
     title: "Modern Living Space",
     tag: "Interior Design",
     ratio: "aspect-[4/3]",
+    image: "/images/project1.jpg",
   },
-  { title: "Luxury Office Design", tag: "Commercial", ratio: "aspect-[4/3]" },
-  { title: "Urban Residence", tag: "Architecture", ratio: "aspect-[5/4]" },
+  {
+    title: "Luxury Office Design",
+    tag: "Commercial",
+    ratio: "aspect-[4/3]",
+    image: "/images/project2.jpg",
+  },
+  {
+    title: "Urban Residence",
+    tag: "Architecture",
+    ratio: "aspect-[5/4]",
+    image: "/images/project3.jpg",
+  },
   {
     title: "Boutique Hotel Interior",
     tag: "Hospitality",
     ratio: "aspect-[5/4]",
+    image: "/images/project4.jpg",
   },
 ];
 
@@ -55,12 +67,14 @@ export default function Portfolio() {
             <motion.div
               key={project.title}
               variants={fadeUp}
-              className="group relative overflow-hidden rounded-2xl"
+              className={`group relative overflow-hidden rounded-2xl ${project.ratio}`}
             >
-              <ImagePlaceholder
-                label={project.tag}
-                ratio={project.ratio}
-                className="transition-transform duration-500 group-hover:scale-105"
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-charcoal/70 via-charcoal/0 to-transparent p-6 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                 <p className="font-body text-xs uppercase tracking-wide text-gold-light">
@@ -70,7 +84,7 @@ export default function Portfolio() {
                   {project.title}
                 </p>
               </div>
-              <p className="mt-3 font-display text-base font-semibold text-ink group-hover:opacity-0 sm:hidden">
+              <p className="pointer-events-none absolute bottom-3 left-3 font-display text-base font-semibold text-cream drop-shadow group-hover:opacity-0 sm:hidden">
                 {project.title}
               </p>
             </motion.div>
