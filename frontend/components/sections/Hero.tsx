@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Star } from "lucide-react";
-import ImagePlaceholder from "./ui/ImagePlaceholder";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export default function Hero() {

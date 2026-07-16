@@ -3,33 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
-
-const PROJECTS = [
-  {
-    title: "Modern Living Space",
-    tag: "Interior Design",
-    ratio: "aspect-[4/3]",
-    image: "/images/project1.jpg",
-  },
-  {
-    title: "Luxury Office Design",
-    tag: "Commercial",
-    ratio: "aspect-[4/3]",
-    image: "/images/project2.jpg",
-  },
-  {
-    title: "Urban Residence",
-    tag: "Architecture",
-    ratio: "aspect-[5/4]",
-    image: "/images/project3.jpg",
-  },
-  {
-    title: "Boutique Hotel Interior",
-    tag: "Hospitality",
-    ratio: "aspect-[5/4]",
-    image: "/images/project4.jpg",
-  },
-];
+import { HOMEPAGE_PROJECTS } from "@/data/projects";
 
 export default function Portfolio() {
   return (
@@ -63,7 +37,7 @@ export default function Portfolio() {
           viewport={viewportOnce}
           className="mt-12 grid gap-6 sm:grid-cols-2"
         >
-          {PROJECTS.map((project) => (
+          {HOMEPAGE_PROJECTS.map((project) => (
             <motion.div
               key={project.title}
               variants={fadeUp}

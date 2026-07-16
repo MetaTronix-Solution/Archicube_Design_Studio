@@ -1,4 +1,4 @@
-import ImagePlaceholder from "./ui/ImagePlaceholder";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 
 export default function FeaturedBanner() {
   return (
