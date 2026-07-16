@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award, Building2 } from "lucide-react";
-import ImagePlaceholder from "./ui/ImagePlaceholder";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 const STATS = [

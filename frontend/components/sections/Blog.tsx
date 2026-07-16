@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ImagePlaceholder from "./ui/ImagePlaceholder";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 const POSTS = [

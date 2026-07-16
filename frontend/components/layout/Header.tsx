@@ -9,7 +9,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 const links = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/servicess" },
+  { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Contact", href: "/contact" },
 ];
@@ -93,8 +93,7 @@ export default function Navbar() {
                 >
                   {item.name}
 
-                  {(hovered === item.href ||
-                    (hovered === null && active)) && (
+                  {(hovered === item.href || (hovered === null && active)) && (
                     <motion.span
                       layoutId="nav-underline"
                       transition={{

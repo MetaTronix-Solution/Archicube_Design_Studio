@@ -1,14 +1,14 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Process from "@/components/Process";
-import FeaturedBanner from "@/components/FeaturedBanner";
-import Testimonials from "@/components/Testimonials";
-import Blog from "@/components/Blog";
-import CTA from "@/components/CAT";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Services from "@/components/sections/Services";
+import Portfolio from "@/components/sections/Portfolio";
+import Process from "@/components/sections/Process";
+import FeaturedBanner from "@/components/sections/FeaturedBanner";
+import Testimonials from "@/components/sections/Testimonials";
+import Blog from "@/components/sections/Blog";
+import CTA from "@/components/sections/CTA";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -23,7 +23,6 @@ export default function Home() {
       <Testimonials />
       <Blog />
       <CTA />
-      <Footer />
     </main>
   );
 }

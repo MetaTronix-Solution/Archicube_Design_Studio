@@ -37,7 +37,33 @@
   }
 }
 
-html {
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Explicit spinner class — defined here directly instead of relying on
+   Tailwind's built-in animate-spin utility, since the @theme block above
+   only declares --animate-fade-up and --animate-marquee, and that override
+   can suppress the default animate-spin utility in Tailwind v4. */
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+/*
+  NOTE: scroll-behavior is intentionally NOT set on html globally.
+  Setting it globally makes Next.js's route-change scroll-reset (top of page)
+  animate instead of jump instantly, which is what caused the footer to
+  flash on screen for a moment when visiting /about, /services, etc.
+
+  Instead, use the .smooth-scroll utility below only on elements/links that
+  do in-page anchor jumps (e.g. a "Scroll ↓" hint on the homepage hero).
+*/
+.smooth-scroll {
   scroll-behavior: smooth;
 }
 
