@@ -38,7 +38,7 @@ export default function Hero() {
 
           <motion.div variants={fadeUp} className="mt-9">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3.5 font-body text-sm font-medium text-charcoal shadow-[0_10px_30px_-12px_rgba(189,143,78,0.65)] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-gold-light"
             >
               Book a Consultation

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -64,9 +65,14 @@ export default function Navbar() {
             href="/"
             className="group flex items-center gap-2.5 font-display text-xl tracking-tight"
           >
-            <span className="relative flex h-8 w-8 items-center justify-center border border-[var(--color-gold)]">
-              <span className="absolute inset-1 border border-[var(--color-gold)]/40 transition-transform duration-500 group-hover:rotate-45" />
-            </span>
+            <Image
+              src="/images/Archicube_studio.jpg"
+              alt="ArchiCube Design Studio"
+              width={36}
+              height={36}
+              priority
+              className="h-9 w-9 rounded-full object-cover"
+            />
             <span>
               <span className="text-[var(--color-ink)]">Archi</span>
               <span className="text-[var(--color-gold)]">Cube</span>
