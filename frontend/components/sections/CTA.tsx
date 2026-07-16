@@ -33,7 +33,7 @@ export default function CTA() {
         <motion.a
           variants={fadeUp}
           whileHover={{ scale: 1.06, rotate: 4 }}
-          href="mailto:hello@archicube.studio"
+          href="mailto:archi20cube@gmail.com"
           aria-label="Email ArchiCube Design Studio"
           className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gold text-charcoal transition-colors duration-300 hover:bg-gold-light"
         >

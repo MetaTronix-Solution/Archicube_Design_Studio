@@ -44,14 +44,14 @@ export default function ContactPage() {
               <p className="font-body text-sm uppercase tracking-widest text-gold">
                 Email
               </p>
-              <p className="mt-2 font-body text-lg">hello@archicube.com</p>
+              <p className="mt-2 font-body text-lg">archi20cube@gmail.com</p>
             </div>
 
             <div>
               <p className="font-body text-sm uppercase tracking-widest text-gold">
                 Phone
               </p>
-              <p className="mt-2 font-body text-lg">+977-98XXXXXXXX</p>
+              <p className="mt-2 font-body text-lg">+977 976-5149118</p>
             </div>
 
             <div>

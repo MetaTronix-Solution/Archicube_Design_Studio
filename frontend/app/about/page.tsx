@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { animate, motion, useInView } from "framer-motion";
 import { Compass, Sofa, Leaf, ClipboardCheck } from "lucide-react";
 
 const PILLARS = [
@@ -30,12 +31,75 @@ const PILLARS = [
   },
 ];
 
+// Split each stat into a numeric target + prefix/suffix, so the number itself
+// can be animated while the surrounding characters ("+", "/5") stay static.
 const STATS = [
-  { value: "180+", label: "Projects Executed Successfully" },
-  { value: "14", label: "Years of Structural Expertise" },
-  { value: "500+", label: "Blueprint Specifications Delivered" },
-  { value: "4.9/5", label: "Client Satisfaction Rating" },
+  {
+    value: 180,
+    prefix: "",
+    suffix: "+",
+    decimals: 0,
+    label: "Projects Executed Successfully",
+  },
+  {
+    value: 14,
+    prefix: "",
+    suffix: "",
+    decimals: 0,
+    label: "Years of Structural Expertise",
+  },
+  {
+    value: 500,
+    prefix: "",
+    suffix: "+",
+    decimals: 0,
+    label: "Blueprint Specifications Delivered",
+  },
+  {
+    value: 4.9,
+    prefix: "",
+    suffix: "/5",
+    decimals: 1,
+    label: "Client Satisfaction Rating",
+  },
 ];
+
+function CountUpStat({
+  value,
+  prefix,
+  suffix,
+  decimals,
+}: {
+  value: number;
+  prefix: string;
+  suffix: string;
+  decimals: number;
+}) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(0, value, {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (latest) => setDisplay(latest.toFixed(decimals)),
+    });
+    return () => controls.stop();
+  }, [inView, value, decimals]);
+
+  return (
+    <p
+      ref={ref}
+      className="font-display text-3xl sm:text-4xl text-gold-light tabular-nums"
+    >
+      {prefix}
+      {display}
+      {suffix}
+    </p>
+  );
+}
 
 export default function About() {
   return (
@@ -145,9 +209,12 @@ export default function About() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <p className="font-display text-3xl sm:text-4xl text-gold-light">
-                {stat.value}
-              </p>
+              <CountUpStat
+                value={stat.value}
+                prefix={stat.prefix}
+                suffix={stat.suffix}
+                decimals={stat.decimals}
+              />
               <p className="font-body text-cream/70 text-xs sm:text-sm mt-2 leading-snug">
                 {stat.label}
               </p>
